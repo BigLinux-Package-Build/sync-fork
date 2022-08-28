@@ -7,11 +7,8 @@ This action automatically sync your upstream fork.
 You need to fill in the `owner` and `name` of the forked repository.
 
 * Exemple: https://github.com/biglinux/bigbashview
-
-owner: biglinux
-
-repo: bigbashview
-
+* owner: biglinux
+* repo: bigbashview
 If your fork name is identical to the upstream one, you can use ${{ github.event.repository.name }}
 
 # Example Workflow
