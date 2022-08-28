@@ -17,13 +17,16 @@ on:
   workflow_dispatch: # on button click
 
 jobs:
-  sync:
+  Sync:
 
     runs-on: ubuntu-latest
 
     steps:
-      - uses: BigLinux-Package-Build/sync-fork@main
+      - uses: actions/checkout@v3
+      
+      - name: Sync and Push
+        uses: BigLinux-Package-Build/sync-fork@main
         with:
-          owner: biglinux
+          owner: xivastudio
           repo: ${{ github.event.repository.name }}
 ```
