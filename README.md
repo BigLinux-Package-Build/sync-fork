@@ -2,9 +2,15 @@
 
 Github action to sync your Forks.
 This action automatically sync your upstream fork.
-You need to fill in the owner and name of the forked repository.
 
-This action uses to automatically create and merge a pull request with the head defined by `head` into the base defined by `base`. The head branch owner is defined by `owner`. If you create a PR in the same repository you can omit the `owner` parameter.
+
+You need to fill in the `owner` and `name` of the forked repository.
+Exemple:
+https://github.com/biglinux/bigbashview
+owner: biglinux
+repo: bigbashview
+
+If your fork name is identical to the upstream one, you can use ${{ github.event.repository.name }}
 
 # Example Workflow
 
