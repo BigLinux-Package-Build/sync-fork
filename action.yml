@@ -1,15 +1,6 @@
 name: 'Sync Fork'
 description: 'Sync fork and push to local repository'
 
-inputs:
-  owner:
-    description: 'owner upstream repository'
-    required: true
-  repo:
-    description: 'repository upstream name'
-    required: true
-    default: ${{ github.event.repository.name }}
-
 runs:
   using: "composite"
   steps:
