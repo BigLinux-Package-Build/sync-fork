@@ -10,7 +10,7 @@ You need to fill in the `owner` and `name` of the forked repository.
 * owner: biglinux
 * repo: bigbashview
 
-If your fork name is identical to the upstream one, you can use ${{ github.event.repository.name }}
+If your fork name is identical to the upstream one, you can use `${{ github.event.repository.name }}`
 
 # Example Workflow
 
