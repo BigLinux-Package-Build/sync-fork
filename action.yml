@@ -20,21 +20,18 @@ runs:
           OWNER: ${{ inputs.owner }}
           REPO: ${{ inputs.repo }}
         run: |
-        
-          curl ${{ github.api_url }}/repos/${{ github.repository }}
-        
-        
-        
-        
-        
+          #get upstream forked
+          UPSTREAM=$(curl -s "https://api.github.com/repos/${{ github.repository }}" | sed -n '/source/{h;${x;p;};d;};H;${x;p;}' | grep html_url | tail -n1 | awk '{print $2}' | sed 's/,//')
+          
           ##config github
-          #git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          #git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
           
           ##sync fork and push
           #git remote add upstream https://github.com/$OWNER/$REPO.git
-          #git fetch upstream
-          ##git checkout main
-          #git pull --unshallow
-          #git merge --no-edit upstream/main
-          #git push
+          git remote add upstream $UPSTREAM.git
+          git fetch upstream
+          #git checkout main
+          git pull --unshallow
+          git merge --no-edit upstream/main
+          git push
