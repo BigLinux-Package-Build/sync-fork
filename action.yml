@@ -21,7 +21,7 @@ runs:
           REPO: ${{ inputs.repo }}
         run: |
           #get upstream forked
-          UPSTREAM=$(curl -s "https://api.github.com/repos/${{ github.repository }}" | sed -n '/source/{h;${x;p;};d;};H;${x;p;}' | grep html_url | tail -n1 | awk '{print $2}' | sed 's/,//')
+          UPSTREAM=$(curl -s "https://api.github.com/repos/${{ github.repository }}" | sed -n '/source/{h;${x;p;};d;};H;${x;p;}' | grep html_url | tail -n1 | awk '{print $2}' | sed 's/,//' | sed 's/"//g')
           
           ##config github
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
