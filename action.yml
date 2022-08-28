@@ -21,7 +21,7 @@ runs:
           REPO: ${{ inputs.repo }}
         run: |
         
-          curl ${{ github.api_url }})
+          curl ${{ github.api_url }}
         
         
         
