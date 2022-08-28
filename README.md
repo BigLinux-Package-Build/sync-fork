@@ -9,11 +9,11 @@ This action uses to automatically create and merge a pull request with the head 
 # Example Workflow
 
 ```yml
-name: Fork Sync
+name: Sync Fork
 
 on:
   schedule:
-    - cron: '*/30 * * * *' # every 30 minutes
+    - cron: '0 */6 * * *' # every 6 hours
   workflow_dispatch: # on button click
 
 jobs:
@@ -27,6 +27,6 @@ jobs:
       - name: Sync and Push
         uses: BigLinux-Package-Build/sync-fork@main
         with:
-          owner: xivastudio
+          owner: biglinux
           repo: ${{ github.event.repository.name }}
 ```
