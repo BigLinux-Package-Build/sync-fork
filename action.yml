@@ -1,0 +1,33 @@
+name: 'Sync Fork'
+description: 'Sync fork and push to local repository'
+
+inputs:
+  owner:
+    description: 'owner upstream repository'
+    required: true
+  repo:
+    description: 'repository upstream name'
+    required: true
+    default: ${{ github.event.repository.name }}
+
+runs:
+  using: "composite"
+  steps:
+
+      - name: Sync and Push
+        shell: bash
+        env:
+          OWNER: ${{ inputs.owner }}
+          REPO: ${{ inputs.repo }}
+        run: |
+          #config github
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          #sync fork and push
+          git remote add upstream https://github.com/$OWNER/$REPO.git
+          git fetch upstream
+          #git checkout main
+          git pull --unshallow
+          git merge --no-edit upstream/main
+          git push
