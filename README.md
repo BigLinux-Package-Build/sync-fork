@@ -6,7 +6,7 @@ This action automatically sync your upstream fork.
 
 You need to fill in the `owner` and `name` of the forked repository.
 
-*Exemple:* https://github.com/biglinux/bigbashview
+* Exemple: https://github.com/biglinux/bigbashview
 
 owner: biglinux
 
